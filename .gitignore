@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+target/
+frontend/dist/
+frontend/build/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Environment files
+.env
+*.log
+
+# OS files
+.DS_Store
+
+# Docker volumes
+postgres-data/
