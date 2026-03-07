@@ -2,7 +2,7 @@
 
 > Track your daily expenses, manage EMIs, and never miss a subscription payment - all in one beautiful dashboard.
 
- 🐛 **[Report Bug](https://github.com/RupiniNuthakki/fintrack/issues)**
+🐛 **[Report Bug](https://github.com/RupiniNuthakki/fintrack/issues)**
 
 ---
 
@@ -226,6 +226,12 @@ If FinTrack helps you manage your finances better:
 📣 **Share it** with friends who need it  
 💬 **Spread the word** on social media  
 🐛 **Report bugs** to make it better
+
+---
+
+## 📄 License
+
+Free to use under MIT License - see [LICENSE](LICENSE) file
 
 ---
 
