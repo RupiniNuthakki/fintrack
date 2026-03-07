@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Expenses from './pages/Expenses';
@@ -6,7 +7,7 @@ import Emis from './pages/Emis';
 import Subscriptions from './pages/Subscriptions';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem('token');
+  const { isAuthenticated } = useAuth();
 
   return (
     <BrowserRouter>

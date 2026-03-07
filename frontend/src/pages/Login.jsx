@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -34,10 +36,10 @@ function Login() {
           password: formData.password,
         });
         
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('userEmail', response.data.email);
-        localStorage.setItem('userName', response.data.name);
+        // Use Auth Context login
+        login(response.data.token, response.data.email, response.data.name);
         
+        // Navigate to dashboard
         navigate('/dashboard');
       } else {
         await authAPI.register({
@@ -51,10 +53,10 @@ function Login() {
           password: formData.password,
         });
         
-        localStorage.setItem('token', loginResponse.data.token);
-        localStorage.setItem('userEmail', loginResponse.data.email);
-        localStorage.setItem('userName', loginResponse.data.name);
+        // Use Auth Context login
+        login(loginResponse.data.token, loginResponse.data.email, loginResponse.data.name);
         
+        // Navigate to dashboard
         navigate('/dashboard');
       }
     } catch (err) {
@@ -74,17 +76,17 @@ function Login() {
         <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse animation-delay-4000"></div>
       </div>
 
-    {/* Money/Finance Icons Background - ANIMATED! */}
-    <div className="absolute inset-0 opacity-10 overflow-hidden">
+      {/* Money/Finance Icons Background - ANIMATED! */}
+      <div className="absolute inset-0 opacity-10 overflow-hidden">
         <div className="absolute top-24 left-24 text-6xl animate-float">💰</div>
         <div className="absolute top-32 right-40 text-5xl animate-float-slow" style={{animationDelay: '0.5s'}}>💵</div>
         <div className="absolute bottom-40 left-48 text-4xl animate-float-reverse" style={{animationDelay: '1s'}}>💳</div>
         <div className="absolute bottom-32 right-32 text-6xl animate-float" style={{animationDelay: '1.5s'}}>📊</div>
         <div className="absolute top-1/2 left-16 text-5xl animate-float-slow" style={{animationDelay: '0.3s'}}>💸</div>
-        <div className="absolute top-1/2 right-24 text-4xl animate-float-reverse" style={{animationDelay: '0.7s'}}>🏦</div>
-        <div className="absolute bottom-1/3 left-1/4 text-3xl animate-float" style={{animationDelay: '1.2s'}}>📈</div>
+        <div className="absolute top-1/3 right-24 text-4xl animate-float-reverse" style={{animationDelay: '0.7s'}}>🏦</div>
+        <div className="absolute bottom-1/3 left-1/3 text-3xl animate-float" style={{animationDelay: '1.2s'}}>📈</div>
         <div className="absolute top-2/3 right-1/4 text-5xl animate-float-slow" style={{animationDelay: '0.9s'}}>💎</div>
-    </div>
+      </div>
 
       {/* Login Card */}
       <div className="relative z-10 bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md">
