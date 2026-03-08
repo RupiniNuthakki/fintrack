@@ -1,254 +1,222 @@
-# 💰 FinTrack - Your Personal Finance Companion
+# 💰 FinTrack - Personal Finance Manager
 
-> Track your daily expenses, manage EMIs, and never miss a subscription payment - all in one beautiful dashboard.
+A full-stack web application for tracking expenses, EMIs, and subscriptions with beautiful visualizations and real-time analytics.
 
-🐛 **[Report Bug](https://github.com/RupiniNuthakki/fintrack/issues)**
+![FinTrack Dashboard](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4-green?style=for-the-badge&logo=springboot)
+
+## 🌐 Live Demo
+
+**[View Live App →](https://fintrack-pi-beige.vercel.app)**
+
+Test it out! Register a new account to explore all features.
 
 ---
 
-## ✨ What is FinTrack?
+## ✨ Features
 
-FinTrack is a simple, intuitive web app that helps you take control of your finances. Whether you're tracking your daily coffee runs, managing loan payments, or keeping tabs on your Netflix subscription, FinTrack makes it effortless.
+### 💵 Expense Tracking
+- Add, edit, and delete expenses with ease
+- Categorize by Food, Transport, Shopping, Bills, Entertainment, and more
+- Filter expenses by custom date ranges
+- Visual spending analytics with interactive charts
 
-**Built for everyday people who want to:**
-- Know where their money goes
+### 💳 EMI Management
+- Track loan payments and installments
+- Monitor remaining payments with progress indicators
+- View detailed payment schedules
 - Never miss an EMI payment
-- Track all subscriptions in one place
-- See their spending patterns at a glance
+
+### 🔄 Subscription Tracking
+- Manage monthly and yearly subscriptions
+- Track renewal dates automatically
+- Monitor recurring costs in one place
+- Get overview of all active subscriptions
+
+### 📊 Interactive Dashboard
+- Real-time spending overview at a glance
+- Beautiful charts and data visualizations
+- Monthly spending summaries
+- Category-wise expense breakdowns
+
+### 🔐 Secure Authentication
+- JWT-based authentication system
+- Encrypted passwords using BCrypt
+- Protected routes and API endpoints
+- User-specific data isolation
 
 ---
 
-## 🎯 Key Features
+## 🛠️ Tech Stack
 
-### 📊 **Smart Dashboard**
-Get a complete snapshot of your finances the moment you log in:
-- Total spending and monthly breakdown
-- Visual charts showing spending by category
-- Upcoming payments and due dates
-- Recent transactions at a glance
+### Frontend
+- **React 18** - Modern UI library
+- **Vite** - Lightning-fast build tool
+- **Tailwind CSS** - Utility-first styling
+- **Recharts** - Data visualization
+- **Axios** - HTTP client
+- **React Router** - Client-side routing
+- **Context API** - State management
 
-### 💵 **Expense Tracking**
-Log your daily expenses in seconds:
-- Quick add with amount, category, and date
-- Organize by categories (Food, Shopping, Transport, etc.)
-- Filter expenses by date range
-- Edit or delete anytime
+### Backend
+- **Spring Boot 3.4** - Enterprise Java framework
+- **Spring Security** - Authentication & authorization
+- **JWT** - Stateless token-based auth
+- **PostgreSQL** - Relational database
+- **JPA/Hibernate** - Object-relational mapping
+- **Maven** - Build automation
 
-### 💳 **EMI Manager**
-Never miss a loan payment:
-- Track multiple EMIs (car loans, home loans, personal loans)
-- See progress bars showing how much you've paid
-- Know your next due date
-- Calculate remaining months automatically
-
-### 🔄 **Subscription Tracker**
-Stop forgetting about recurring charges:
-- Add monthly or yearly subscriptions
-- Auto-calculate true monthly cost
-- Set billing reminders
-- See total monthly obligations
+### Deployment & DevOps
+- **Vercel** - Frontend hosting with auto-deployment
+- **Railway** - Backend hosting & managed PostgreSQL
+- **Docker** - Containerization for local development
+- **GitHub Actions** - CI/CD pipeline
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
-### For Users (Just Want to Use It)
+### Prerequisites
+- Java 17 or higher
+- Node.js 18 or higher
+- Docker Desktop (for local database)
+- Maven 3.8+
 
-**Option 1: Use the Live App** ⭐ (Recommended)
-1. Visit: **[fintrack.yourapp.com](#)** (coming soon!)
-2. Click "Register" and create your account
-3. Start tracking your finances!
+### Local Development Setup
 
-**Option 2: Run Locally**
+#### 1️⃣ Clone the repository
 ```bash
-# Prerequisites: Install Java, Node.js, and Docker
-
-# 1. Clone the project
 git clone https://github.com/RupiniNuthakki/fintrack.git
 cd fintrack
+```
 
-# 2. Start the database
+#### 2️⃣ Start local database
+```bash
 docker-compose up -d
+```
 
-# 3. Start backend (in one terminal)
+This starts PostgreSQL on `localhost:5432` and Redis on `localhost:6379`
+
+#### 3️⃣ Run the backend
+```bash
 cd backend/fintrack-backend
-./mvnw spring-boot:run
+mvn clean install
+mvn spring-boot:run
+```
 
-# 4. Start frontend (in another terminal)
+Backend API runs on `http://localhost:8080`
+
+#### 4️⃣ Run the frontend
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
-# 5. Open http://localhost:5173 in your browser
+Frontend runs on `http://localhost:5173`
+
+#### 5️⃣ Open your browser
+Navigate to `http://localhost:5173` and start tracking your finances!
+
+---
+
+## 📸 Screenshots
+
+*Coming soon! Screenshots will showcase the dashboard, expense tracking, EMI management, and subscription features.*
+
+---
+
+## 🏗️ Architecture
+```
+┌─────────────┐      HTTPS       ┌──────────────┐
+│   Browser   │ ◄──────────────► │    Vercel    │
+│  (React)    │                  │  (Frontend)  │
+└─────────────┘                  └──────────────┘
+                                        │
+                                   REST API
+                                        │
+                                        ▼
+                                 ┌──────────────┐
+                                 │   Railway    │
+                                 │  (Backend)   │
+                                 └──────────────┘
+                                        │
+                                        ▼
+                                 ┌──────────────┐
+                                 │  PostgreSQL  │
+                                 │  (Database)  │
+                                 └──────────────┘
 ```
 
 ---
 
-## 📱 How to Use FinTrack
+## 🎯 Key Learnings
 
-### **First Time Setup**
-1. **Register:** Create your account with email and password
-2. **Login:** You'll be taken to your dashboard
-3. **Start Adding Data:** Click any "Add" button to begin
+Through building FinTrack, I gained hands-on experience with:
 
-### **Daily Usage**
-
-#### Track an Expense
-1. Click "Expenses" in navigation
-2. Click "Add Expense" button
-3. Enter: Amount ($50), Category (Food), Description (Lunch)
-4. Pick the date → Save!
-
-#### Add an EMI
-1. Go to "EMIs" page
-2. Click "Add EMI"
-3. Enter: Name (Car Loan), Total ($20,000), Monthly ($500), Duration (48 months)
-4. Set next due date → Save!
-5. Watch the progress bar as you pay it off!
-
-#### Manage Subscriptions
-1. Go to "Subscriptions"
-2. Click "Add Subscription"
-3. Enter: Name (Netflix), Amount ($15.99), Billing (Monthly)
-4. Set next billing date → Save!
-5. See your total monthly subscription cost at the bottom
-
-#### View Your Dashboard
-- Click "Dashboard" anytime to see:
-    - How much you've spent this month
-    - Your spending by category (pie chart)
-    - Upcoming EMI and subscription payments
-    - Recent expenses
+- **Full-stack Development**: Built complete application from database design to user interface
+- **RESTful API Design**: Created scalable backend with proper HTTP methods and status codes
+- **Authentication & Security**: Implemented JWT tokens and Spring Security for protected routes
+- **Database Design**: Designed normalized schema with proper relationships and constraints
+- **State Management**: Used React Context API for global authentication state
+- **CORS Configuration**: Handled cross-origin requests between frontend and backend
+- **Cloud Deployment**: Deployed frontend and backend to production using modern platforms
+- **Responsive Design**: Built mobile-first UI that works seamlessly across devices
 
 ---
 
-## 🎨 Screenshots
+## 🔮 Future Enhancements
 
-> Beautiful, modern interface designed for clarity and ease of use
+Planned features for upcoming releases:
 
-### Dashboard Overview
-*See all your finances at a glance with colorful cards and charts*
-
-### Expense Tracking
-*Clean table view with easy add/edit/delete options*
-
-### EMI Progress
-*Visual progress bars show exactly how far you've come*
-
-### Subscription Cards
-*All your recurring payments in one organized view*
+- 📸 **AI-Powered Receipt Scanning** - Upload receipts and auto-extract expense details using OCR
+- 🤖 **Virtual Chat Assistant** - Natural language queries like "How much did I spend on food?"
+- 📊 **Advanced Analytics** - Spending trends, predictions, and budget recommendations
+- 📧 **Email Notifications** - Reminders for EMI payments and subscription renewals
+- 🌙 **Dark Mode** - Toggle between light and dark themes
+- 📄 **Export Reports** - Download monthly statements as PDF or Excel
+- 💰 **Budget Goals** - Set spending limits and track progress
+- 🔄 **Recurring Expenses** - Automate monthly expense entries
+- 📱 **Mobile App** - Native iOS and Android applications
 
 ---
 
-## 🛠️ Technology Stack
+## 🤝 Contributing
 
-**Backend (The Brain)**
-- Java + Spring Boot - Handles all the logic
-- PostgreSQL - Stores your data securely
-- JWT Authentication - Keeps your account safe
-
-**Frontend (The Face)**
-- React - Fast, modern interface
-- TailwindCSS - Beautiful, responsive design
-- Vite - Lightning-fast performance
-
-**Infrastructure**
-- Docker - Easy database setup
-- REST API - Frontend & backend communicate smoothly
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/RupiniNuthakki/fintrack/issues).
 
 ---
 
-## 🔐 Security & Privacy
-
-Your financial data is important. Here's how we protect it:
-
-✅ **Passwords are encrypted** - We use BCrypt hashing (industry standard)  
-✅ **Secure login sessions** - JWT tokens with 24-hour expiry  
-✅ **Your data is yours** - Each user can only see their own information  
-✅ **Protected API** - All endpoints require authentication  
-✅ **No sharing** - We never share or sell your data
-
----
-
-## 📊 Why Use FinTrack?
-
-### **It's Simple**
-No complicated features. Just the essentials done right.
-
-### **It's Free**
-100% free and open-source. No hidden costs, no premium tiers.
-
-### **It's Private**
-Your data stays yours. No ads, no tracking, no data mining.
-
-### **It's Flexible**
-Use it on your phone, tablet, or computer. Works everywhere.
-
----
-
-## 🎓 Perfect For
-
-- 💼 **Young Professionals** tracking their first paychecks
-- 👨‍👩‍👧‍👦 **Families** managing household expenses
-- 🎓 **Students** on a tight budget
-- 💡 **Freelancers** tracking business expenses
-- 🏠 **Anyone** who wants to know where their money goes
-
----
-
-## 🤝 Need Help?
-
-**Found a bug?** Open an [issue](https://github.com/RupiniNuthakki/fintrack/issues)  
-**Have a question?** Email: rupininuthakki@gmail.com  
-**Want to contribute?** Pull requests are welcome!
-
----
-
-## 📈 Roadmap
-
-What's coming next:
-
-- [ ] 📧 Email reminders for upcoming payments
-- [ ] 📊 Downloadable expense reports (PDF/Excel)
-- [ ] 📅 Budget planning and goals
-- [ ] 📱 Mobile app version
-- [ ] 🌍 Multi-currency support
-- [ ] 🤝 Split expenses with friends
-- [ ] 🔔 Push notifications
-
----
-
-## 🌟 Support This Project
-
-If FinTrack helps you manage your finances better:
-
-⭐ **Star this repo** on GitHub  
-📣 **Share it** with friends who need it  
-💬 **Spread the word** on social media  
-🐛 **Report bugs** to make it better
-
----
-
-## 📄 License
-
-Free to use under MIT License - see [LICENSE](LICENSE) file
-
----
-
-## 👨‍💻 Created By
+## 👨‍💻 Author
 
 **Rupini Nuthakki**
 
-💼 Building practical solutions for everyday problems  
-📧 rupininuthakki@gmail.com  
-🔗 [LinkedIn](#) | [GitHub](https://github.com/RupiniNuthakki) | [Portfolio](#)
+- GitHub: [@RupiniNuthakki](https://github.com/RupiniNuthakki)
+- Email: rupininuthakki@gmail.com
+- LinkedIn: [Connect with me](https://www.linkedin.com/in/rupini-n-9a205417b/)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ using React and Spring Boot
+- Deployed on Vercel and Railway
+- UI inspiration from modern fintech applications
+- Special thanks to the open-source community
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for better financial awareness**
+**⭐ Star this repo if you found it helpful!**
 
-[⬆ Back to Top](#-fintrack---your-personal-finance-companion)
+**[Live Demo](https://fintrack-pi-beige.vercel.app)** • **[Report Bug](https://github.com/RupiniNuthakki/fintrack/issues)** • **[Request Feature](https://github.com/RupiniNuthakki/fintrack/issues)**
 
 </div>
